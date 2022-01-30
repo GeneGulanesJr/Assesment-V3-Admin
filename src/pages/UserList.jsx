@@ -16,11 +16,11 @@ import DataTable from "react-data-table-component";
 import LTOForm from "./Forms/LTOForm";
 
 
-export default function IndexClient() {
+export default function UserList() {
     const [filterText, setFilterText] = useState("");
     const [targetClient, setTargetClient] = useState([]);
     const Data = () => {
-        const usersCollectionRef = collection(db, "applications");
+        const usersCollectionRef = collection(db, "users");
         onSnapshot(usersCollectionRef, (snapshot) => {
             let userData = []
             snapshot.docs.forEach(doc => {
@@ -38,13 +38,13 @@ export default function IndexClient() {
         () => [
             {
                 name: "First Name",
-                selector: (row) => row.firstName,
+                selector: (row) => row.firstname,
                 sortable: true,
                 grow: 2,
             },
             {
                 name: "Last Name",
-                selector: (row) => row.lastName,
+                selector: (row) => row.lastname,
                 sortable: true,
                 grow: 2,
             },
@@ -54,13 +54,6 @@ export default function IndexClient() {
                 sortable: true,
                 grow: 2,
             },
-            {
-                name: "Application Type",
-                selector: (row) => row.ApplicationType,
-                sortable: true,
-                grow: 2,
-            },
-
             {
                 name: "Actions",
                 cell: (works) => <HStack>
@@ -80,7 +73,7 @@ export default function IndexClient() {
 
             <Flex pb={5}>
                 <Heading >
-                 Applicant List
+                    Applicant List
                 </Heading>
                 <Spacer />
                 <HStack>
@@ -105,26 +98,13 @@ export default function IndexClient() {
                         if (filterText === "") {
                             return value;
                         } else if (
-                            value.firstName && value.firstName
+                            value.firstname && value.firstname
                                 .toLowerCase()
                                 .includes(filterText.toLowerCase())
                         ) {
                             return value;
                         } else if (
-                            value.lastName && value.lastName
-                                .toLowerCase()
-                                .includes(filterText.toLowerCase())
-                        ) {
-                            return value;
-                        }else if (
-                            value.status && value.status
-                                .toLowerCase()
-                                .includes(filterText.toLowerCase())
-                        ) {
-                            return value;
-                        }
-                        else if (
-                            value.ApplicationType && value.ApplicationType
+                            value.lastname && value.lastname
                                 .toLowerCase()
                                 .includes(filterText.toLowerCase())
                         ) {

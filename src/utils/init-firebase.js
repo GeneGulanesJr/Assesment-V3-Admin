@@ -31,4 +31,3 @@ enableIndexedDbPersistence(db).catch((err) => {
 
 
 export const auth = getAuth(app);
-export {db}

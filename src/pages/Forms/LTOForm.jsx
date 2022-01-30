@@ -30,7 +30,7 @@ export default function LTOForm({works}) {
     const toast = useToast()
     async  function updateUsers2(values) {
 
-        const userRef = doc(db, 'users', works.id);
+        const userRef = doc(db, 'applications', works.id);
         await  updateDoc(userRef,{
             ...values
 

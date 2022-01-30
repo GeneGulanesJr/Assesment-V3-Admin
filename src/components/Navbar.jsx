@@ -30,6 +30,7 @@ export function Navbar() {
         spacing={4}
       >
         <Spacer />
+         <h1>Admin</h1>
         {!currentUser && <Navlink to='/login' name='Login' />}
         {currentUser && <Navlink to='/profile' name='Profile' />}
         {!currentUser && <Navlink to='/register' name='Register' />}
