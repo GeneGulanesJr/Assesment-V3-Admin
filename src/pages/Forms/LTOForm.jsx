@@ -88,6 +88,19 @@ export default function LTOForm({works}) {
                                             <Form>
                                                 <Grid templateColumns='repeat(5, 1fr)' gap={6}>
                                                     <GridItem w='100%'  />
+                                                    <Field name='ApplicationType' >
+                                                        {({ field, form }) => (
+                                                            <FormControl isInvalid={form.errors.ApplicationType && form.touched.ApplicationType}>
+                                                                <FormLabel htmlFor='ApplicationType'>Application Type </FormLabel>
+                                                                <Select required {...field} id='ApplicationType' placeholder='Select Option'>
+                                                                    <option value='New'>New</option>
+                                                                    <option value='Renewal'>Renewal</option>
+                                                                    <option value='Change Name'>Change Name</option>
+                                                                </Select>
+                                                                <FormErrorMessage>{form.errors.ApplicationType}</FormErrorMessage>
+                                                            </FormControl>
+                                                        )}
+                                                    </Field>
                                                 <Field name='districtOffice' >
                                                     {({ field, form }) => (
                                                         <FormControl isInvalid={form.errors.districtOffice && form.touched.districtOffice}>
