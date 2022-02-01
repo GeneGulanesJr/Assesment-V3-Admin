@@ -44,6 +44,7 @@ export function Navbar() {
             name='Logout'
             onClick={async e => {
               e.preventDefault()
+              sessionStorage.clear('UserRole')
               await logout()
             }}
           />

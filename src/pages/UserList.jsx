@@ -14,9 +14,15 @@ import UpdateClient from "./UpdateClient";
 
 import DataTable from "react-data-table-component";
 import LTOForm from "./Forms/LTOForm";
+import banner from "../Assets/Banner.jpg";
 
 
 export default function UserList() {
+    const newidk = sessionStorage.getItem('UserRole')
+    const was =JSON.parse(newidk)
+
+    console.log(was[0].Role,"aaaaaaaaaaaaa")
+
     const [filterText, setFilterText] = useState("");
     const [targetClient, setTargetClient] = useState([]);
     const Data = () => {
@@ -66,54 +72,78 @@ export default function UserList() {
         []
     );
 
+if( was[0].Role==="Admin"){   return (
 
+    <Layout>
+
+        <Flex pb={5}>
+            <Heading >
+                User List
+            </Heading>
+            <Spacer />
+            <HStack>
+                <Input
+                    type="text"
+                    placeholder="Search List"
+                    onChange={(e) => setFilterText(e.target.value)}
+                />
+
+            </HStack>
+        </Flex>
+
+        <DataTable
+            highlightOnHover
+            pagination
+            direction="ltr"
+            responsive
+            striped
+            columns={columns}
+            data={
+                targetClient.filter((value) => {
+                    if (filterText === "") {
+                        return value;
+                    } else if (
+                        value.firstname && value.firstname
+                            .toLowerCase()
+                            .includes(filterText.toLowerCase())
+                    ) {
+                        return value;
+                    } else if (
+                        value.lastname && value.lastname
+                            .toLowerCase()
+                            .includes(filterText.toLowerCase())
+                    ) {
+                        return value;
+                    }
+                })
+            }
+
+        />
+    </Layout>
+)}else if(was[0].Role ==="User"){
     return (
-
         <Layout>
+            <Heading>
+
+            </Heading>
+
+
 
             <Flex pb={5}>
                 <Heading >
-                    User List
+
                 </Heading>
                 <Spacer />
                 <HStack>
-                    <Input
-                        type="text"
-                        placeholder="Search List"
-                        onChange={(e) => setFilterText(e.target.value)}
-                    />
+                    <img src={banner}/>
 
                 </HStack>
             </Flex>
 
-            <DataTable
-                highlightOnHover
-                pagination
-                direction="ltr"
-                responsive
-                striped
-                columns={columns}
-                data={
-                    targetClient.filter((value) => {
-                        if (filterText === "") {
-                            return value;
-                        } else if (
-                            value.firstname && value.firstname
-                                .toLowerCase()
-                                .includes(filterText.toLowerCase())
-                        ) {
-                            return value;
-                        } else if (
-                            value.lastname && value.lastname
-                                .toLowerCase()
-                                .includes(filterText.toLowerCase())
-                        ) {
-                            return value;
-                        }
-                    })
-                }
 
-            />
+
         </Layout>
     )
+}
+
 }
