@@ -17,7 +17,6 @@ import { db } from "../utils/init-firebase";
 import UpdateClient from "./UpdateClient";
 
 import DataTable from "react-data-table-component";
-import LTOForm from "./Forms/LTOForm";
 export default function Homepage() {
 
     const [filterText, setFilterText] = useState("");
