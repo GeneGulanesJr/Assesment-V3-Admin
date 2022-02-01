@@ -63,7 +63,6 @@ export default function Homepage() {
                 name: "Actions",
                 cell: (works) => <HStack>
                     <UpdateClient works={works} />
-                    <LTOForm works={works} />
 
                 </HStack>
             },
