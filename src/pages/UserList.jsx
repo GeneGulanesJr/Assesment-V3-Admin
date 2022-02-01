@@ -135,7 +135,7 @@ if( was[0].Role==="Admin"){   return (
                 </Heading>
                 <Spacer />
                 <HStack>
-                    <img src={banner}/>
+                    <h1>Go Back your not an admin</h1>
 
                 </HStack>
             </Flex>

@@ -14,12 +14,11 @@ import UpdateClient from "./UpdateClient";
 
 import DataTable from "react-data-table-component";
 import LTOForm from "./Forms/LTOForm";
-const newidk = sessionStorage.getItem('UserRole')
-const was =JSON.parse(newidk)
 
-console.log(was[0].Role,"aaaaaaaaaaaaa")
 
 export default function IndexClient() {
+    const newidk = sessionStorage.getItem('UserRole')
+    const was =JSON.parse(newidk)
     const [filterText, setFilterText] = useState("");
     const [targetClient, setTargetClient] = useState([]);
     const Data = () => {
@@ -139,7 +138,27 @@ export default function IndexClient() {
           />
       </Layout>
   )}
-  else if(was[0].Role ==="User"){return(
-      <h1>Go back your not an admin</h1>
+  else if(was[0].Role ==="User"){ return (
+      <Layout>
+          <Heading>
+
+          </Heading>
+
+
+
+          <Flex pb={5}>
+              <Heading >
+
+              </Heading>
+              <Spacer />
+              <HStack>
+                  <h1>Go Back your not an admin</h1>
+
+              </HStack>
+          </Flex>
+
+
+
+      </Layout>
   )}
 }
