@@ -16,7 +16,7 @@ import Registerpage from '../pages/Registerpage'
 import ResetPasswordPage from '../pages/ResetPasswordPage'
 import TestPage from '../pages/TestPage'
 import Applicants from "../pages/Applicants";
-
+import UserList from "../pages/UserList";
 
 
 
@@ -30,6 +30,7 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path='/register' component={Registerpage} />
           <ProtectedRoute exact path='/profile' component={Profilepage} />
           <ProtectedRoute exact path='/Applicants' component={Applicants} />
+          <ProtectedRoute exact path='/Users' component={UserList} />
           <ProtectedRoute exact path='/test' component={TestPage} />
           <ProtectedRoute
             exact

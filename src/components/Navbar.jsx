@@ -36,6 +36,7 @@ export function Navbar() {
         {!currentUser && <Navlink to='/register' name='Register' />}
         {currentUser && <Navlink to='/' name='Admin Page' />}
         {currentUser && <Navlink to='/applicants' name='List of Applicants' />}
+        {currentUser && <Navlink to='/users' name='List of Users' />}
 
         {currentUser && (
           <Navlink
