@@ -38,13 +38,13 @@ export default function UserList() {
         () => [
             {
                 name: "First Name",
-                selector: (row) => row.firstname,
+                selector: (row) => row.firstName,
                 sortable: true,
                 grow: 2,
             },
             {
                 name: "Last Name",
-                selector: (row) => row.lastname,
+                selector: (row) => row.lastName,
                 sortable: true,
                 grow: 2,
             },
@@ -58,7 +58,7 @@ export default function UserList() {
                 name: "Actions",
                 cell: (works) => <HStack>
                     <UpdateClient works={works} />
-                    <LTOForm works={works} />
+
 
                 </HStack>
             },
@@ -73,7 +73,7 @@ export default function UserList() {
 
             <Flex pb={5}>
                 <Heading >
-                    Applicant List
+                    User List
                 </Heading>
                 <Spacer />
                 <HStack>
